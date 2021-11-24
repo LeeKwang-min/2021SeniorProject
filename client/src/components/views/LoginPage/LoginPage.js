@@ -1,15 +1,9 @@
-//import Axios from 'axios'
-//import { response } from 'express';
 import React,{useState} from 'react'
 import {useDispatch} from 'react-redux';
 import {loginUser} from '../../../_actions/user_actions'
-import { withRouter } from "react-router-dom";
-import { Formik } from 'formik';
 import { Form, Input, Button, Checkbox, Typography } from 'antd';
-import Icon from '@ant-design/icons';
 import {FaUserAlt} from "react-icons/fa";
 import {FaLockOpen} from "react-icons/fa";
-//import { USER_SERVER } from '../../../components/Config.js';
 
 const { Title } = Typography;
 
@@ -51,16 +45,15 @@ function LoginPage(props) {
                 setFormErrorMessage("")
               }, 3000);
             });
-
-    // Axios.post('/api/users/login', body)
-    //   .then(response => {})
   }
  
 
   return (
 
 
-    <div style={{ display: 'flex', justifyContent: 'center', alignContent: 'center', width: '30%', margin: '150px auto', height: '45vh', backgroundColor: '#FFD8A6', borderRadius: '8px' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', 
+    alignContent: 'center', width: '20%', margin: '150px auto', height: '45vh', 
+    backgroundColor: '#FAE3BF', borderRadius: '8px',boxShadow:'4px 4px 4px' }}>
 
       <div style={{
         display: 'flex', justifyContent: 'center', alignContent: 'center',
@@ -69,7 +62,7 @@ function LoginPage(props) {
 
         <form style={{ display: 'flex', flexDirection: 'column', margin: '10px ' }}
           onSubmit={onSubmitHandler}>
-          <Title level={2} classname='login' style={{ width: '100%', height: '1vh', margin: '0 0 70px 50px', alignContent: 'center' }}>
+          <Title level={2} classname='login' style={{ width: '100%', height: '1vh', margin: '0 30% 40% 30%', alignContent: 'center' }}>
             로그인</Title>
           <label>Email</label>
           {/* <input type="email" value={Email} onChange={onEmailHandler}></input> */}

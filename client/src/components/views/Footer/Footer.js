@@ -5,7 +5,8 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { useSelector } from "react-redux";
 import { withRouter } from 'react-router-dom';
-
+import styled from "styled-components";
+import { gray } from "../LandingPage/color";
 library.add(fab);
 
 function Footer(props) {
@@ -13,7 +14,7 @@ function Footer(props) {
       const btnStyle = {
         margin: '30px 10px',
         color: "white",
-        background: "teal",
+        background: "#71A3FF",
         padding: ".375rem .75rem",
         border: "1px solid teal",
         borderRadius: ".25rem",
@@ -27,6 +28,7 @@ function Footer(props) {
 
       }
       else{
+        alert('로그인이 필요합니다. 로그인 페이지로 이동합니다.')
         props.history.push('/login');
       }
     }
@@ -50,7 +52,7 @@ function Footer(props) {
                         <Link to="/">고객서비스센터</Link>
                     </li>
                     <li>
-                        <Link to="/">기업소개2</Link>
+                        <Link to="/">기업소개</Link>
                     </li>
                 </ul>
 
@@ -73,11 +75,6 @@ function Footer(props) {
                     {/* <FontAwesomeIcon icon={["fab", "google"]} className="google" size="2x"/> */}
                     <a onClick={() => window.open('https://github.com/LeeKwang-min/2021SeniorProject', '_blank')}>
                         <FontAwesomeIcon icon={['fab', 'github']} className="github" size="2x" /></a>
-                    {/* <i class="fab fa-facebook-square"></i>
-                    <i className="fab fa-instagram"></i>
-                    <i className="fab fa-youtube"></i>
-                    <i className="fab fa-twitter"></i>
-                    <i className="fas fa-mobile-alt"></i> */}
 
                     <div className="footer__rightContent">
                         <div>회원이시라면...</div>
@@ -85,15 +82,34 @@ function Footer(props) {
                         지금 웹소설을 평가하고,
                         내 취향에 딱 맞는 웹소설을 추천 받아보세요!
                     </div>
-                    {/* <div
-                        style={{ background: 'skyblue', display: 'flex', justifyContent: 'center', margin: '2rem' }}
-                    > */}
-                        <button style={btnStyle} onClick={RecHandler}>웹소설 추천받기</button>
-                {/* </div> */}
+                    <ContentWrap>
+                        <button className="overseas-remittance-link" onClick={RecHandler}>평가하고 추천받기</button>
+                {/* </div> */}</ContentWrap>
             </div>
         </div>
     </div>
     );
 }
+const ContentWrap = styled.div`
+.overseas-remittance-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 258px;
+    height: 56px;
+    font-size: 16px;
+    background-color: ${gray[4]};
+    border-radius: 10px;
+    text-decoration: none;
+    margin-top: 30px;
+  }
+  .overseas-remittance-link:hover {
+    text-decoration: underline;
+  }
+  .footer__rightContent{
+    
+}
+  `;
+
 
 export default withRouter(Footer)
